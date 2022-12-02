@@ -26,6 +26,7 @@ function App() {
           <Route path="/contacts" element={(
             <Contacts/>
           )}/>
+          <Route path='*' element={<h1>Not Found</h1>}/>
         </Routes>
       </main>
     </div>
