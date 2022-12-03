@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {FormEvent} from 'react';
+import {useNavigate} from "react-router-dom";
 
 const Contacts = () => {
+  const navigate = useNavigate();
+
+  const onFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    navigate("/");
+  };
+
   return (
     <div className="bg-warning w-50 mx-auto text-center p-4 mt-5">
       <h4 className="text-white">Связаться с нами</h4>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <div className="mx-auto">
           <input
             type="text"
