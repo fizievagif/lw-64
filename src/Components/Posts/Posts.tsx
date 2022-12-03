@@ -12,13 +12,14 @@ const Posts = () => {
     try {
       const response = await axiosApi.get('/posts.json');
 
-      const postsKeys = Object.keys(response.data).map(key => {
-        const postBlog = response.data[key];
-        postBlog.id = key;
-        return postBlog;
-      });
-
-      setPost(postsKeys);
+      if (response.data !== null || undefined) {
+        const postsKeys = Object.keys(response.data).map(key => {
+          const postBlog = response.data[key];
+          postBlog.id = key;
+          return postBlog;
+        });
+        setPost(postsKeys);
+      }
     } catch (e) {
       console.error(e);
     }
@@ -30,14 +31,22 @@ const Posts = () => {
     }
   }, [axiosPost, location])
 
+  let isPostOrNot;
+
+  if (post.length !== 0) {
+    isPostOrNot = post.map(post => (
+      <Post
+        key={post.id}
+        post={post}
+      />
+    ));
+  } else {
+    isPostOrNot = <h1 className="text-center">Unfortunately there are no posts</h1>
+  }
+
   return (
     <>
-      {post.map(post => (
-        <Post
-          key={post.id}
-          post={post}
-        />
-      ))}
+      {isPostOrNot}
     </>
   );
 };

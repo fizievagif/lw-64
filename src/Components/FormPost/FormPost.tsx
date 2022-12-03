@@ -57,6 +57,7 @@ const FormPost: React.FC<Props> = ({currentPost}) => {
             value={posts.author}
             onChange={postChange}
             placeholder="Enter author"
+            required
           />
         </div>
 
@@ -69,6 +70,7 @@ const FormPost: React.FC<Props> = ({currentPost}) => {
             value={posts.title}
             onChange={postChange}
             placeholder="Enter title"
+            required
           />
         </div>
 
@@ -80,6 +82,7 @@ const FormPost: React.FC<Props> = ({currentPost}) => {
              value={posts.message}
              onChange={postChange}
              placeholder="Enter message"
+             required
            />
         </div>
         <button

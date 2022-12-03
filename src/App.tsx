@@ -5,6 +5,8 @@ import Home from "./Containers/Home/Home";
 import About from "./Containers/About/About";
 import Add from "./Containers/Add/Add";
 import Navbar from "./Components/Navbar/Navbar";
+import Edit from "./Containers/Edit/Edit";
+import ReadMore from "./Containers/ReadMore/ReadMore";
 
 function App() {
   return (
@@ -16,6 +18,12 @@ function App() {
         <Routes>
           <Route path="/" element={(
             <Home/>
+          )}/>
+          <Route path="/edit/:id" element={(
+            <Edit/>
+          )}/>
+          <Route path="read-more/:id" element={(
+            <ReadMore/>
           )}/>
           <Route path="/add" element={(
             <Add/>
